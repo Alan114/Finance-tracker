@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./Navbar.module.css";
 import { useLogout } from "../hooks/useLogout";
+import styles from "./Navbar.module.css";
 
 function Navbar() {
   const { logout } = useLogout();
