@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { projectAuth } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 
@@ -31,12 +31,11 @@ const useSignup = () => {
 
       // update state
       if (!isCancelled) {
-        setError(null);
         setIsPending(false);
+        setError(null);
       }
     } catch (err) {
       if (!isCancelled) {
-        console.log(err.message);
         setError(err.message);
         setIsPending(false);
       }
@@ -47,7 +46,7 @@ const useSignup = () => {
     return () => setIsCancelled(true);
   }, []);
 
-  return { error, isPending, signup };
+  return { signup, error, isPending };
 };
 
 export default useSignup;

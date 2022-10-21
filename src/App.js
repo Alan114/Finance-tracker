@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import { useAuthContext } from "./hooks/useAuthContext";
+import Navbar from "./components/Navbar";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
@@ -23,7 +23,7 @@ function App() {
               {!user && <Login />}
             </Route>
             <Route path="/signup">
-              {user && <Redirect to="/" />}
+              {user && user.displayName && <Redirect to="/" />}
               {!user && <Signup />}
             </Route>
           </Switch>

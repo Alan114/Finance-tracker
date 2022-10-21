@@ -7,12 +7,6 @@ function Login() {
   const [password, setPassword] = useState("");
   const { login, error, isPending } = useLogin();
 
-  const handleEmail = (enteredEmail) => {
-    setEmail(enteredEmail.target.value);
-  };
-  const handlePassword = (enteredPassword) => {
-    setPassword(enteredPassword.target.value);
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
     login(email, password);
@@ -23,11 +17,19 @@ function Login() {
       <h2>Login</h2>
       <label>
         <span>Email:</span>
-        <input type="email" onChange={handleEmail} value={email} />
+        <input
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
       </label>
       <label>
         <span>Password:</span>
-        <input type="password" onChange={handlePassword} value={password} />
+        <input
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
       </label>
       {!isPending && <button className="btn">Login</button>}
       {isPending && (

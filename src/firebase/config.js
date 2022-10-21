@@ -9,8 +9,8 @@ const firebaseConfig = {
   projectId: "nn-angular-922b9",
   storageBucket: "nn-angular-922b9.appspot.com",
   messagingSenderId: "691292452513",
-  appId: "1:691292452513:web:65eba4c776073efe24a2e0",
-  measurementId: "G-GVQG9F8G9M",
+  appId: "1:691292452513:web:db4306ebe993513f24a2e0",
+  measurementId: "G-1LV2PJVERW",
 };
 
 // init firebase
