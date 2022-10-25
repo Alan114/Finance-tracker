@@ -22,9 +22,9 @@ export const useCollection = (collection, _query, _orderBy) => {
     }
 
     const unsubscribe = ref.onSnapshot(
-      (snapshot) => {
+      snapshot => {
         let results = [];
-        snapshot.docs.forEach((doc) => {
+        snapshot.docs.forEach(doc => {
           results.push({ ...doc.data(), id: doc.id });
         });
 
@@ -32,14 +32,14 @@ export const useCollection = (collection, _query, _orderBy) => {
         setDocuments(results);
         setError(null);
       },
-      (error) => {
+      error => {
         console.log(error);
         setError("Could not fetch the data");
       }
     );
     // unsubscribe on unmount
     return () => unsubscribe();
-  }, [collection, query]);
+  }, [collection, query, orderBy]);
 
-  return { documents, error, orderBy };
+  return { documents, error };
 };
